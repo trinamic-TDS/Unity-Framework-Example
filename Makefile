@@ -2,9 +2,9 @@ CC = gcc
 CFLAGS = -Iunity/src -Itest -Isrc -Icmock/src -Imocks
 TARGET = build/test_runner
 
-SRC = src/led.c
+SRC = src/led.c src/spi.c src/adder.c
 TEST_SRC = test/test_led.c
-MOCK_SRC = mocks/Mockgpio.c
+MOCK_SRC = mocks/Mockgpio.c mocks/Mockspi.c
 
 UNITY_SRC = unity/src/unity.c
 CMOCK_SRC = cmock/src/cmock.c
@@ -13,7 +13,7 @@ all: generate_mocks build/test_runner run_tests
 
 # Step 1: Generate mocks
 generate_mocks:
-	ruby cmock/lib/cmock.rb CMock.yml src/gpio.h
+	ruby cmock/lib/cmock.rb CMock.yml src/gpio.h src/spi.h
 
 # Step 2: Compile everything
 build/test_runner: $(SRC) $(MOCK_SRC) $(TEST_SRC) $(UNITY_SRC) $(CMOCK_SRC)
