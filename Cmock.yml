@@ -1,0 +1,6 @@
+:mock_path: "test"
+:includes:
+  - "gpio.h"
+  - "led.h"
+:plugins:
+  - expect
