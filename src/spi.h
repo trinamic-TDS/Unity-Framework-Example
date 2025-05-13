@@ -3,7 +3,7 @@
 #define SPI_H
 
 // Function to send data via SPI
-void spi_send_data(int device_id, const char *data);
+void spi_send_data(int device_id, char data);
 
 // Function to receive data from SPI
 char spi_receive_data(int device_id);

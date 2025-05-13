@@ -26,18 +26,18 @@ void test_add_negative_numbers(void) {
 }
 
 void test_send_message_to_device_should_call_spi_send_data_for_each_char(void) {
-    const char *message = "Hello";
+    char *msg = "Hello";
     int device_id = 1;
 
-    // Set the expectations
-    spi_send_data_Expect(device_id, "H");
-    spi_send_data_Expect(device_id, "e");
-    spi_send_data_Expect(device_id, "l");
-    spi_send_data_Expect(device_id, "l");
-    spi_send_data_Expect(device_id, "o");
+    // Set the expectations //
+    spi_send_data_Expect(device_id, (char)('H'));
+    spi_send_data_Expect(device_id, (char)('e'));
+    spi_send_data_Expect(device_id, (char)('l'));
+    spi_send_data_Expect(device_id, (char)('l'));
+    spi_send_data_Expect(device_id, (char)('o'));
 
     // Call the function under test
-    send_message_to_device(device_id, message);
+    send_message_to_device(device_id, msg);
 }
 
 void test_led_on_should_turn_gpio_high(void) {
