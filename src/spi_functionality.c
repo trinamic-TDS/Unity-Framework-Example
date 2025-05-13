@@ -1,5 +1,6 @@
 // spi.c
 #include "spi.h"
+#include "spi_functionality.h"
 
 // Function that sends a message to a device via SPI
 void send_message_to_device(int device_id, const char *message) {
